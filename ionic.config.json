@@ -1,0 +1,7 @@
+{
+  "name": "zaza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
