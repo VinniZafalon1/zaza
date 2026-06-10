@@ -1,33 +1,84 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
+import { createRouter, createWebHistory } from '@ionic/vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+import LoginPage from '@/views/LoginPage.vue'
+import RegisterPage from '@/views/RegisterPage.vue'
+import ResetPasswordPage from '@/views/ResetPassword.vue'
+
+import AlbumPage from '@/views/AlbumPage.vue'
+import CollectedPage from '@/views/CollectedPage.vue'
+import ProfilePage from '@/views/ProfilePage.vue'
+import AboutPage from '@/views/AboutPage.vue'
+import TermsPage from '@/views/TermsPage.vue'
+import PrivacyPage from '@/views/PrivacyPage.vue'
+
+import TabsPage from '@/views/TabsPage.vue'
+
+import { useAuth } from '@/composables/useAuth'
+
+const routes = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    component: LoginPage
   },
+
   {
-    path: '/tabs/',
+    path: '/register',
+    component: RegisterPage
+  },
+
+  {
+    path: '/reset-password',
+    component: ResetPasswordPage
+  },
+
+  {
+    path: '/tabs',
     component: TabsPage,
+
+    beforeEnter: () => {
+      const { currentUser } = useAuth()
+
+      if (!currentUser.value) {
+        return '/'
+      }
+    },
+
     children: [
       {
         path: '',
-        redirect: '/tabs/tab1'
+        redirect: '/tabs/album'
       },
+
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: 'album',
+        component: AlbumPage
       },
+
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: 'collected',
+        component: CollectedPage
       },
+
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
+        path: 'profile',
+        component: ProfilePage
+      },
+
+      {
+        path: 'about',
+        component: AboutPage
       }
     ]
+  },
+
+  {
+    path: '/terms',
+    component: TermsPage
+  },
+
+  {
+    path: '/privacy',
+    component: PrivacyPage
   }
 ]
 

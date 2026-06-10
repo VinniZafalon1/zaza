@@ -1,0 +1,258 @@
+:root {
+
+  --ion-color-primary: #009c3b;
+  --ion-color-primary-rgb: 0,156,59;
+  --ion-color-primary-contrast: #ffffff;
+
+  --ion-color-secondary: #ffdf00;
+  --ion-color-secondary-rgb: 255,223,0;
+  --ion-color-secondary-contrast: #000000;
+
+  --ion-color-tertiary: #002776;
+  --ion-color-tertiary-rgb: 0,39,118;
+  --ion-color-tertiary-contrast: #ffffff;
+
+  --ion-background-color: #f4f7fb;
+  --ion-text-color: #1f2937;
+
+  --ion-font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+}
+
+/* APP */
+
+ion-app {
+  background: #f4f7fb;
+}
+
+/* HEADER */
+
+ion-toolbar {
+  --background: linear-gradient(
+    135deg,
+    #009c3b,
+    #006f2a
+  );
+
+  --color: white;
+}
+
+ion-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* CONTEÚDO */
+
+ion-content {
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+
+/* BOTÕES */
+
+ion-button {
+  --border-radius: 16px;
+
+  height: 48px;
+
+  font-weight: 600;
+
+  text-transform: none;
+
+  letter-spacing: .3px;
+}
+
+/* INPUTS */
+
+ion-item {
+  --background: white;
+
+  border-radius: 16px;
+
+  margin-bottom: 12px;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
+}
+
+/* SEARCH */
+
+ion-searchbar {
+  --background: white;
+
+  border-radius: 16px;
+
+  margin-top: 10px;
+}
+
+/* SEGMENT */
+
+ion-segment {
+  margin-top: 16px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 4px;
+}
+
+/* BADGES */
+
+ion-badge {
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+}
+
+/* TABS */
+
+ion-tab-bar {
+  --background: white;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+ion-tab-button {
+  --color-selected: #009c3b;
+}
+
+/* AVATAR */
+
+ion-avatar {
+  border: 4px solid #009c3b;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+}
+
+/* ===== CARDS FLUTUANTES ===== */
+
+ion-card {
+
+  width: 92%;
+  max-width: 520px;
+
+  margin: 24px auto;
+
+  border-radius: 24px;
+
+  background: white;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.10);
+
+  transition: all .2s ease;
+}
+
+ion-card:hover {
+  transform: translateY(-4px);
+}
+
+ion-card-title {
+  font-weight: 700;
+}
+
+ion-card-subtitle {
+  color: #6b7280;
+}
+
+/* LOGIN */
+
+.login-page {
+  --background:
+    linear-gradient(
+      135deg,
+      #009c3b,
+      #006f2a
+    );
+}
+
+.login-container {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 100%;
+}
+
+.login-card {
+
+  width: 92%;
+  max-width: 480px;
+
+  margin: auto;
+}
+
+/* ÁLBUM */
+
+.album-progress {
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
+
+/* FIGURINHAS */
+
+.sticker-card {
+
+  width: 92%;
+  max-width: 380px;
+
+  margin: 20px auto;
+
+  text-align: center;
+}
+
+.sticker-image {
+
+  width: 120px;
+
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid #009c3b;
+
+  margin: 20px auto 10px;
+
+  display: block;
+}
+
+/* PERFIL */
+
+.profile-card {
+  max-width: 500px;
+  margin: 24px auto;
+}
+
+/* SOBRE */
+
+.about-card {
+  max-width: 500px;
+  margin: 24px auto;
+}
+
+/* LINKS */
+
+a {
+  color: #009c3b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
