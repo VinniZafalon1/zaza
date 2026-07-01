@@ -53,15 +53,21 @@ import {
 import AppHeader from '@/components/AppHeader.vue'
 import LoginForm from '@/components/LoginForm.vue'
 import { useAuth } from '@/composables/useAuth'
+import { useAlbum } from '@/composables/useAlbum'
 
 const router = useRouter()
 const { login } = useAuth()
 
-const handleLogin = (data: any) => {
+const { loadAlbum } = useAlbum()
+
+const handleLogin = async (data: any) => {
   const success = login(data.email, data.senha)
 
   if (success) {
-    router.replace('/tabs/album')
+
+await loadAlbum()
+
+router.push('/tabs/album')
   } else {
     alert('Email ou senha inválidos')
   }

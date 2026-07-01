@@ -41,17 +41,17 @@
         }}
       </IonBadge>
 
-      <IonButton
-        expand="block"
-        class="ion-margin-top"
-        @click="$emit('toggle', sticker.id)"
-      >
-        {{
-          sticker.coletada
-            ? 'Remover'
-            : 'Coletar'
-        }}
-      </IonButton>
+<IonButton
+  expand="block"
+  class="ion-margin-top"
+  @click="$emit('toggle', sticker.id)"
+>
+  {{
+    sticker.coletada
+      ? 'Remover'
+      : 'Coletar'
+  }}
+</IonButton>
 
     </IonCardContent>
 

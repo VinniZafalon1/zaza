@@ -65,12 +65,19 @@ import {
   IonLabel
 } from '@ionic/vue'
 
+const album = useAlbum()
+
 const {
   search,
   filter,
   total,
   collected,
-  filteredStickers,
-  toggleCollected
-} = useAlbum()
+  filteredStickers
+} = album
+
+const toggleCollected = async (id: number) => {
+
+
+  await album.toggleCollected(id)
+}
 </script>
