@@ -61,7 +61,7 @@ const { login } = useAuth()
 const { loadAlbum } = useAlbum()
 
 const handleLogin = async (data: any) => {
-  const success = login(data.email, data.senha)
+  const success = await login(data.email, data.senha)
 
   if (success) {
 

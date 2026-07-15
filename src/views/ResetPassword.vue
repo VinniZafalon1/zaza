@@ -22,8 +22,8 @@ import {
 
 const { resetPassword } = useAuth()
 
-const handleReset = (email: string) => {
-  const exists = resetPassword(email)
+const handleReset = async (email: string) => {
+  const exists = await resetPassword(email)
 
   if (exists) {
     alert('Email de recuperação enviado!')

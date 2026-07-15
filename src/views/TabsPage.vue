@@ -1,18 +1,15 @@
 <template>
   <IonPage>
-
     <IonTabs>
-
       <IonRouterOutlet />
 
       <IonTabBar slot="bottom">
-
         <IonTabButton
           tab="album"
           href="/tabs/album"
         >
           <IonIcon :icon="bookOutline" />
-          <IonLabel>Álbum</IonLabel>
+          <IonLabel>Album</IonLabel>
         </IonTabButton>
 
         <IonTabButton
@@ -32,17 +29,30 @@
         </IonTabButton>
 
         <IonTabButton
+          tab="statistics"
+          href="/tabs/statistics"
+        >
+          <IonIcon :icon="statsChartOutline" />
+          <IonLabel>Estatisticas</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton
+          tab="achievements"
+          href="/tabs/achievements"
+        >
+          <IonIcon :icon="trophyOutline" />
+          <IonLabel>Conquistas</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton
           tab="about"
           href="/tabs/about"
         >
           <IonIcon :icon="informationCircleOutline" />
           <IonLabel>Sobre</IonLabel>
         </IonTabButton>
-
       </IonTabBar>
-
     </IonTabs>
-
   </IonPage>
 </template>
 
@@ -61,6 +71,8 @@ import {
   bookOutline,
   albumsOutline,
   personOutline,
+  statsChartOutline,
+  trophyOutline,
   informationCircleOutline
 } from 'ionicons/icons'
 </script>

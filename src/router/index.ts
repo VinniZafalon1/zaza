@@ -10,6 +10,9 @@ import ProfilePage from '@/views/ProfilePage.vue'
 import AboutPage from '@/views/AboutPage.vue'
 import TermsPage from '@/views/TermsPage.vue'
 import PrivacyPage from '@/views/PrivacyPage.vue'
+import EstatisticasPage from '@/views/EstatiticasPage.vue'
+import StickerDetails from '@/views/StickerDetails.vue'
+import AchievementsPage from '@/views/AchievementsPage.vue'
 
 import TabsPage from '@/views/TabsPage.vue'
 
@@ -67,6 +70,18 @@ const routes = [
       {
         path: 'about',
         component: AboutPage
+      },
+      {
+        path: 'statistics',
+        component: EstatisticasPage
+      },
+      {
+        path: 'achievements',
+        component: AchievementsPage
+      },
+      {
+        path: 'sticker/:id',
+        component: StickerDetails
       }
     ]
   },

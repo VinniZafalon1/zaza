@@ -34,13 +34,13 @@ import {
 const router = useRouter()
 const { register } = useAuth()
 
-const handleRegister = (data: any) => {
+const handleRegister = async (data: any) => {
   if (data.senha.length < 6) {
     alert('A senha precisa ter pelo menos 6 caracteres')
     return
   }
 
-const success = register(
+const success = await register(
   data.nome,
   data.email,
   data.senha

@@ -6,15 +6,15 @@
 
       <div class="album-progress">
         <IonBadge color="success">
-          {{ collected }}/{{ total }}
+          {{ statistics.collected }}/{{ statistics.total }}
         </IonBadge>
       </div>
 
       <IonCard>
         <IonCardContent>
-          <h2>Total: {{ total }}</h2>
-          <h2>Coletadas: {{ collected }}</h2>
-          <h2>Faltam: {{ total - collected }}</h2>
+          <h2>Total: {{ statistics.total }}</h2>
+          <h2>Coletadas: {{ statistics.collected }}</h2>
+          <h2>Faltam: {{ statistics.missing }}</h2>
         </IonCardContent>
       </IonCard>
 
@@ -34,7 +34,11 @@
         </IonSegmentButton>
 
         <IonSegmentButton value="pending">
-          <IonLabel>Pendentes</IonLabel>
+        <IonLabel>Pendentes</IonLabel>
+        </IonSegmentButton>
+
+        <IonSegmentButton value="favorites">
+          <IonLabel>Favoritas</IonLabel>
         </IonSegmentButton>
 
       </IonSegment>
@@ -42,6 +46,7 @@
       <StickerList
         :stickers="filteredStickers"
         @toggle="toggleCollected"
+        @favorite="toggleFavorite"
       />
 
     </IonContent>
@@ -70,9 +75,9 @@ const album = useAlbum()
 const {
   search,
   filter,
-  total,
-  collected,
-  filteredStickers
+  statistics,
+  filteredStickers,
+  toggleFavorite
 } = album
 
 const toggleCollected = async (id: number) => {
