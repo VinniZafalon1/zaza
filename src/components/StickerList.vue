@@ -5,6 +5,7 @@
       :key="sticker.id"
       :sticker="sticker"
       @toggle="$emit('toggle', $event)"
+      @favorite="$emit('favorite', $event)"
     />
   </div>
 </template>
@@ -16,5 +17,5 @@ defineProps<{
   stickers: any[]
 }>()
 
-defineEmits(['toggle'])
+defineEmits(['toggle', 'favorite'])
 </script>

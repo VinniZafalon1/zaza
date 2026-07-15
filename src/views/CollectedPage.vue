@@ -6,6 +6,7 @@
       <StickerList
         :stickers="collectedOnly"
         @toggle="toggleCollected"
+        @favorite="toggleFavorite"
       />
     </IonContent>
   </IonPage>
@@ -25,7 +26,8 @@ import {
 
 const {
   stickers,
-  toggleCollected
+  toggleCollected,
+  toggleFavorite
 } = useAlbum()
 
 const collectedOnly = computed(() =>

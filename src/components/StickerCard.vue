@@ -8,6 +8,8 @@
 
     <IonCardHeader>
 
+      <FavoriteButton :favorite="sticker.favorite" @toggle="$emit('favorite', sticker.id)" />
+
       <IonCardTitle>
         {{ sticker.nome }}
       </IonCardTitle>
@@ -53,6 +55,10 @@
   }}
 </IonButton>
 
+<IonButton fill="outline" expand="block" :router-link="`/tabs/sticker/${sticker.id}`">
+  Ver detalhes
+</IonButton>
+
     </IonCardContent>
 
   </IonCard>
@@ -61,6 +67,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import FavoriteButton from './FavoriteButton.vue'
 import {
   IonCard,
   IonCardHeader,
@@ -75,7 +82,7 @@ const props = defineProps<{
   sticker: any
 }>()
 
-defineEmits(['toggle'])
+defineEmits(['toggle', 'favorite'])
 
 const raridadeColor = computed(() => {
   switch (props.sticker.raridade) {

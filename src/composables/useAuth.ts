@@ -1,67 +1,21 @@
 import { ref } from 'vue'
-import { users } from '../data/users'
+import { autenticarUsuario, cadastrarUsuario, usuarioExiste } from '@/services/database'
 
-const currentUser = ref<any>(null)
+const currentUser = ref<{ nome: string; email: string } | null>(null)
 
 export function useAuth() {
-  const login = (email: string, senha: string) => {
-    const user = users.find(
-      u => u.email === email && u.senha === senha
-    )
-
-    if (user) {
-      currentUser.value = user
-      return true
-    }
-
-    return false
+  const login = async (email: string, senha: string) => {
+    const user = await autenticarUsuario(email, senha)
+    if (!user) return false
+    currentUser.value = { nome: user.nome, email: user.login }
+    return true
   }
 
-const register = (
-  nome: string,
-  email: string,
-  senha: string
-) => {
+  const register = async (nome: string, email: string, senha: string) =>
+    cadastrarUsuario(nome.trim(), email, senha)
 
-  const existe = users.find(
-    u => u.email === email
-  )
+  const logout = () => { currentUser.value = null }
+  const resetPassword = async (email: string) => usuarioExiste(email)
 
-  if (existe) {
-    return false
-  }
-
-  users.push({
-    nome,
-    email,
-    senha
-  })
-
-  localStorage.setItem(
-    'users',
-    JSON.stringify(users)
-  )
-
-  return true
-}
-
-  const logout = () => {
-    currentUser.value = null
-  }
-
-  const resetPassword = (email: string) => {
-    const user = users.find(
-      u => u.email === email
-    )
-
-    return !!user
-  }
-
-  return {
-    currentUser,
-    login,
-    register,
-    logout,
-    resetPassword
-  }
+  return { currentUser, login, register, logout, resetPassword }
 }
